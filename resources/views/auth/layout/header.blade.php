@@ -23,6 +23,9 @@
         <!-- App Css-->
         <link href="{{ asset('admin') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+        {{-- Sweetalert2 --}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
     <body>

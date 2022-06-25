@@ -11,15 +11,25 @@
                                             <h3>Beasiswa Ponpes</h3>
                                         </a>
                                     </div>
+                                    @if(session('notif'))
+                                        <script>
+                                            Swal.fire(
+                                            'Informasi!',
+                                            '{{ session('notif') }}',
+                                            'info'
+                                            )
+                                        </script>
+                                    @endif
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
                                             <h5 class="mb-0">Welcome Back !</h5>
                                             <p class="text-muted mt-2">Login untuk masuk ke Halaman Dashboard</p>
                                         </div>
-                                        <form class="mt-4 pt-2" action="http://minia.php.themesbrand.com/index.html">
+                                        <form class="mt-4 pt-2" action="{{ route('login.post') }}" method="POST">
+                                            @csrf
                                             <div class="mb-3">
-                                                <label class="form-label">Username</label>
-                                                <input type="text" class="form-control" name="username" placeholder="Enter Email">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
@@ -34,7 +44,7 @@
                                                 </div>
 
                                                 <div class="input-group auth-pass-inputgroup">
-                                                    <input type="password" class="form-control" placeholder="Enter password" name="password" aria-label="Password" aria-describedby="password-addon">
+                                                    <input type="password" class="form-control" placeholder="Enter password" name="password" aria-label="Password" aria-describedby="password-addon" required>
                                                     <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                                 </div>
                                             </div>
@@ -50,18 +60,18 @@
 
                                             </div>
                                             <div class="mb-3">
-                                                <a class="btn btn-primary w-100 waves-effect waves-light" href="{{ route('dashboard.index') }}">Log In</a>
-                                                {{-- <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button> --}}
+                                                {{-- <a class="btn btn-primary w-100 waves-effect waves-light" href="{{ route('dashboard.index') }}">Log In</a> --}}
+                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
                                             </div>
                                         </form>
                                         <div class="mt-5 text-center">
                                             <p class="text-muted mb-0"><a href="/"
                                                     class="text-primary fw-semibold"> kembali </a> </p>
                                         </div>
-                                        {{-- <div class="mt-5 text-center">
+                                        <div class="mt-5 text-center">
                                             <p class="text-muted mb-0">Belum punya akun ? <a href="{{ route('register') }}"
-                                                    class="text-primary fw-semibold"> Signup now </a> </p>
-                                        </div> --}}
+                                                    class="text-primary fw-semibold"> Daftar Sekarang! </a> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

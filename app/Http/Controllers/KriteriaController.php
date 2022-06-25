@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KriteriaSiswa;
+use App\Models\Siswa;
+use App\Models\SubKriteria;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class KriteriaController extends Controller
 {
@@ -13,8 +19,37 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        //
-        return view('dashboard.kriteria.index');
+
+        $siswa = Siswa::select('id')->first();
+
+        return view('dashboard.kriteria.index', compact('siswa'));
+    }
+
+    public function update(Request $request)
+    {
+        // dd($request->all());
+
+        $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);
+
+        $siswa = KriteriaSiswa::create([
+            'id_siswa' => $request->id_siswa,
+            'nilai_raport' => $request->nilai_raport,
+            'perilaku' => $request->perilaku,
+            'penghasilan_orang_tua' => $penghasilan_orang_tua,
+            'tanggungan_orang_tua' => $request->tanggungan_orang_tua,
+            'jumlah_saudara' => $request->jumlah_saudara,
+            'pekerjaan_orang_tua' => $request->pekerjaan_orang_tua,
+            'kondisi_orang_tua' => $request->kondisi_orang_tua,
+        ]);
+
+        $users = User::where('id', Auth::user()->id)->update(['status' => 'Menunggu Seleksi']);
+
+        if($siswa){
+            return redirect()->route('kriteria.index')->with('notif', 'Kriteria berhasil dikirimkan');
+        }
+
+        return redirect()->route('kriteria.index')->with('notif', 'Kriteria gagal dikirimkan');
+
     }
 
     public function create()
@@ -52,10 +87,6 @@ class KriteriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

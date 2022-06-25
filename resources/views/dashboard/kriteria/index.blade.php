@@ -27,173 +27,273 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <button type="button" class="btn btn-primary btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg">Tambah Kriteria</button>
-                    </div>
+            <div class="col-xl-12 col-md-6">
+                <!-- card -->
+                <div class="card card-h-100">
+                    <!-- card body -->
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <span class="text-muted mb-12 lh-1 d-block text-truncate">Notification</span>
+                                <h6 class="mb-3">
+                                    Hai {{ Auth::user()->name }}, Selamat datang di halaman kriteria!
+                                </h6>
+                                <h6 class="mb-3">
+                                    Status anda saat ini: <b>{{ Auth::user()->status }}</b>
+                                </h6>
+                                @if (Auth::user()->status == 'Belum Menginputkan Kriteria')
+                                <h6 class="mb-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-alert-outline me-2"></i>
+                                        Maaf anda belum mengisi kriteria, silahkan mengisi form dibawah ini...
+                                    </div>
+                                </h6>
+                                @endif
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div>
+            <!-- end row-->
+            @if (Auth::user()->status == 'Belum Menginputkan Kriteria')
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Form Input Kriteria</h4>
+                        </div>
+                        <!-- end card header -->
 
-                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="myLargeModalLabel">Tambah Kriteria</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                        <div class="card-body">
+                            <div>
+                                <h5 class="font-size-14 mb-3">Isi dengan sejujur-jujurnya!</h5>
+                                <form action="{{ route('kriteria.update') }}" method="POST">
+                                @csrf
                                     <div class="row">
-                                        <div class="col-lg-12">
-                                            <div>
-                                                <div class="mb-3">
-                                                    <label for="example-number-input" class="form-label">Nilai Rapor</label>
-                                                    <input class="form-control" type="number" value="42" id="example-number-input">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-text-input" class="form-label">Perilaku</label>
-                                                    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-number-input" class="form-label">Penghasilan Orang Tua</label>
-                                                    <input class="form-control" type="number" value="42" id="example-number-input">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-number-input" class="form-label">Jumlah Tanggungan Orang Tua</label>
-                                                    <input class="form-control" type="number" value="42" id="example-number-input">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-number-input" class="form-label">Jumlah Saudara</label>
-                                                    <input class="form-control" type="number" value="42" id="example-number-input">
-                                                </div>
-                                                <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-thumb-up label-icon"></i> Tambah</button>
 
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <input class="form-control" type="text" name="id_siswa" value="{{ $siswa->id }}" readonly hidden>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Rata - Rata Nilai Raport</label>
+                                                <input class="form-control" type="text" name="nilai_raport" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Perilaku</label>
+                                                <select class="form-control"
+                                                    id="choices-single-default" name="perilaku"
+                                                    placeholder="This is a search placeholder" required>
+                                                    <option value="-" selected>Pilih berapa kali alfa</option>
+                                                    <option value="0">Tidak ada alfa</option>
+                                                    <option value="1">1 kali alfa</option>
+                                                    <option value="2">2 kali alfa</option>
+                                                    <option value="3">3 kali alfa</option>
+                                                    <option value="4">4 kali alfa</option>
+                                                    <option value="5">5 kali alfa</option>
+                                                    <option value="6">6 kali alfa</option>
+                                                    <option value="7">7 kali alfa</option>
+                                                    <option value="8">8 kali alfa</option>
+                                                    <option value="9">9 kali alfa</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Penghasilan Orang Tua (Rp)</label>
+                                                <input class="form-control" type="text" name="penghasilan_orang_tua" id="inputku" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Tanggungan Orang Tua</label>
+                                                <select class="form-control"
+                                                    id="choices-single-default" name="tanggungan_orang_tua"
+                                                    placeholder="This is a search placeholder" required>
+                                                    <option value="-" selected>Pilih berapa tanggungan orang tua</option>
+                                                    <option value="0">Tidak ada</option>
+                                                    <option value="1">1 orang</option>
+                                                    <option value="2">2 orang</option>
+                                                    <option value="3">3 orang</option>
+                                                    <option value="4">4 orang</option>
+                                                    <option value="5">5 orang</option>
+                                                    <option value="6">6 orang</option>
+                                                    <option value="7">7 orang</option>
+                                                    <option value="8">8 orang</option>
+                                                    <option value="9">9 orang</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Jumlah Saudara</label>
+                                                <select class="form-control"
+                                                    id="choices-single-default" name="jumlah_saudara"
+                                                    placeholder="This is a search placeholder" required>
+                                                    <option value="-" selected>Pilih jumlah saudara</option>
+                                                    <option value="0">Tidak ada</option>
+                                                    <option value="1">1 orang</option>
+                                                    <option value="2">2 orang</option>
+                                                    <option value="3">3 orang</option>
+                                                    <option value="4">4 orang</option>
+                                                    <option value="5">5 orang</option>
+                                                    <option value="6">6 orang</option>
+                                                    <option value="7">7 orang</option>
+                                                    <option value="8">8 orang</option>
+                                                    <option value="9">9 orang</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Pekerjaan Orang Tua</label>
+                                                <select class="form-control"
+                                                    id="choices-single-default" name="pekerjaan_orang_tua"
+                                                    placeholder="This is a search placeholder" required>
+                                                    <option value="-" selected>Pilih pekerjaan orang tua</option>
+                                                    <option value="Tidak bekerja">Tidak bekerja</option>
+                                                    <option value="Petani">Petani</option>
+                                                    <option value="Guru">Guru</option>
+                                                    <option value="Pedagang">Pedagang</option>
+                                                    <option value="Lain-lain">Lain-lain</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Kondisi Orang Tua</label>
+                                                <select class="form-control"
+                                                    id="choices-single-default" name="kondisi_orang_tua"
+                                                    placeholder="This is a search placeholder" required>
+                                                    <option value="-" selected>Pilih kondisi orang tua</option>
+                                                    <option value="Yatim Piatu">Yatim Piatu</option>
+                                                    <option value="Yatim">Yatim</option>
+                                                    <option value="Piatu">Piatu</option>
+                                                    <option value="Cerai">Cerai</option>
+                                                    <option value="Lengkap">Lengkap</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                                <!-- end row -->
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nilai Rapor</th>
-                                        <th>Perilaku</th>
-                                        <th>Penghasilan Orang Tua</th>
-                                        <th>Tanggungan Orang Tua</th>
-                                        <th>Jumlah Saudara</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-warning waves-effect waves-light">
-                                                    <i class="bx bx-pencil font-size-16 align-middle me-2"></i>Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">
-                                                    <i class="bx bx-trash font-size-16 align-middle me-2"></i>Hapus
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-warning waves-effect waves-light">
-                                                    <i class="bx bx-pencil font-size-16 align-middle me-2"></i>Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">
-                                                    <i class="bx bx-trash font-size-16 align-middle me-2"></i>Hapus
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-warning waves-effect waves-light">
-                                                    <i class="bx bx-pencil font-size-16 align-middle me-2"></i>Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">
-                                                    <i class="bx bx-trash font-size-16 align-middle me-2"></i>Hapus
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-warning waves-effect waves-light">
-                                                    <i class="bx bx-pencil font-size-16 align-middle me-2"></i>Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">
-                                                    <i class="bx bx-trash font-size-16 align-middle me-2"></i>Hapus
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-warning waves-effect waves-light">
-                                                    <i class="bx bx-pencil font-size-16 align-middle me-2"></i>Edit
-                                                </button>
-                                                <button type="button" class="btn btn-danger waves-effect waves-light">
-                                                    <i class="bx bx-trash font-size-16 align-middle me-2"></i>Hapus
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <button type="submit" class="btn btn-dark waves-effect waves-light">
+                                    <i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Kirim
+                                </button>
+                                </form>
+                            </div>
+                            <!-- Single select input Example -->
                         </div>
-
+                        <!-- end card body -->
                     </div>
-                    <!-- end card body -->
+                    <!-- end card -->
                 </div>
-                <!-- end card -->
+                <!-- end col -->
             </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
+            @endif
+            <!-- end row -->
 
-    </div> <!-- container-fluid -->
-</div>
-<!-- End Page-content -->
+
+
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
     <!-- end main content-->
-@include('dashboard.layout.footer')
+    <script type="text/javascript">
+    function tandaPemisahTitik(b){
+var _minus = false;
+if (b<0) _minus = true;
+b = b.toString();
+b=b.replace(".","");
+b=b.replace("-","");
+c = "";
+panjang = b.length;
+j = 0;
+for (i = panjang; i > 0; i--){
+j = j + 1;
+if (((j % 3) == 1) && (j != 1)){
+c = b.substr(i-1,1) + "." + c;
+} else {
+c = b.substr(i-1,1) + c;
+}
+}
+if (_minus) c = "-" + c ;
+return c;
+}
+
+function numbersonly(ini, e){
+if (e.keyCode>=49){
+if(e.keyCode<=57){
+a = ini.value.toString().replace(".","");
+b = a.replace(/[^\d]/g,"");
+b = (b=="0")?String.fromCharCode(e.keyCode):b + String.fromCharCode(e.keyCode);
+ini.value = tandaPemisahTitik(b);
+return false;
+}
+else if(e.keyCode<=105){
+if(e.keyCode>=96){
+//e.keycode = e.keycode - 47;
+a = ini.value.toString().replace(".","");
+b = a.replace(/[^\d]/g,"");
+b = (b=="0")?String.fromCharCode(e.keyCode-48):b + String.fromCharCode(e.keyCode-48);
+ini.value = tandaPemisahTitik(b);
+//alert(e.keycode);
+return false;
+}
+else {return false;}
+}
+else {
+return false; }
+}else if (e.keyCode==48){
+a = ini.value.replace(".","") + String.fromCharCode(e.keyCode);
+b = a.replace(/[^\d]/g,"");
+if (parseFloat(b)!=0){
+ini.value = tandaPemisahTitik(b);
+return false;
+} else {
+return false;
+}
+}else if (e.keyCode==95){
+a = ini.value.replace(".","") + String.fromCharCode(e.keyCode-48);
+b = a.replace(/[^\d]/g,"");
+if (parseFloat(b)!=0){
+ini.value = tandaPemisahTitik(b);
+return false;
+} else {
+return false;
+}
+}else if (e.keyCode==8 || e.keycode==46){
+a = ini.value.replace(".","");
+b = a.replace(/[^\d]/g,"");
+b = b.substr(0,b.length -1);
+if (tandaPemisahTitik(b)!=""){
+ini.value = tandaPemisahTitik(b);
+} else {
+ini.value = "";
+}
+
+return false;
+} else if (e.keyCode==9){
+return true;
+} else if (e.keyCode==17){
+return true;
+} else {
+//alert (e.keyCode);
+return false;
+}
+
+}
+</script>
+    @include('dashboard.layout.footer')
