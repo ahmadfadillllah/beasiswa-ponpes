@@ -73,7 +73,8 @@
 
                                         <div class="col-lg-12 col-md-6">
                                             <div class="mb-3">
-                                                <input class="form-control" type="text" name="id_siswa" value="{{ $siswa->id }}" readonly hidden>
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">ID Siswa</label>
+                                                <input class="form-control" type="text" name="id_siswa" value="{{ $siswa->id }}" required readonly>
                                             </div>
                                         </div>
 
@@ -119,27 +120,6 @@
                                                     id="choices-single-default" name="tanggungan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
                                                     <option value="-" selected>Pilih berapa tanggungan orang tua</option>
-                                                    <option value="0">Tidak ada</option>
-                                                    <option value="1">1 orang</option>
-                                                    <option value="2">2 orang</option>
-                                                    <option value="3">3 orang</option>
-                                                    <option value="4">4 orang</option>
-                                                    <option value="5">5 orang</option>
-                                                    <option value="6">6 orang</option>
-                                                    <option value="7">7 orang</option>
-                                                    <option value="8">8 orang</option>
-                                                    <option value="9">9 orang</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Jumlah Saudara</label>
-                                                <select class="form-control"
-                                                    id="choices-single-default" name="jumlah_saudara"
-                                                    placeholder="This is a search placeholder" required>
-                                                    <option value="-" selected>Pilih jumlah saudara</option>
                                                     <option value="0">Tidak ada</option>
                                                     <option value="1">1 orang</option>
                                                     <option value="2">2 orang</option>

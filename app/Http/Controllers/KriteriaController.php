@@ -19,8 +19,7 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-
-        $siswa = Siswa::select('id')->first();
+        $siswa = Siswa::all()->where('id_users', Auth::user()->id)->first();
 
         return view('dashboard.kriteria.index', compact('siswa'));
     }
@@ -28,7 +27,6 @@ class KriteriaController extends Controller
     public function update(Request $request)
     {
         // dd($request->all());
-
         $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);
 
         $siswa = KriteriaSiswa::create([
@@ -37,7 +35,6 @@ class KriteriaController extends Controller
             'perilaku' => $request->perilaku,
             'penghasilan_orang_tua' => $penghasilan_orang_tua,
             'tanggungan_orang_tua' => $request->tanggungan_orang_tua,
-            'jumlah_saudara' => $request->jumlah_saudara,
             'pekerjaan_orang_tua' => $request->pekerjaan_orang_tua,
             'kondisi_orang_tua' => $request->kondisi_orang_tua,
         ]);

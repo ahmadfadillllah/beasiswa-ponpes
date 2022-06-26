@@ -20,7 +20,6 @@ class CreateKriteriasiswaTable extends Migration
             $table->integer('perilaku');
             $table->bigInteger('penghasilan_orang_tua');
             $table->integer('tanggungan_orang_tua');
-            $table->integer('jumlah_saudara');
             $table->string('pekerjaan_orang_tua');
             $table->string('kondisi_orang_tua');
             $table->timestamps();
