@@ -13,6 +13,9 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('admin') }}/assets/images/favicon.ico">
 
+        <!-- dropzone css -->
+        <link href="{{ asset('admin') }}/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+
         <!-- plugin css -->
         <link href="{{ asset('admin') }}/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
 

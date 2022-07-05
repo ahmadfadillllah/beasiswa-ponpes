@@ -10,6 +10,11 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeleksiController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +41,51 @@ Route::post('/register/post', [AuthController::class, 'registerpost'])->name('re
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['notif' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('notif', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
+
 
 Route::get('/dashboard/kriteria/edit', [KriteriaController::class, 'edit'])->name('kriteria.edit');
 
@@ -57,6 +107,7 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah']], function(){
 
 //Seleksi
     Route::get('/dashboard/seleksi', [SeleksiController::class, 'index'])->name('seleksi.index');
+    Route::post('/dashboard/seleksi/save', [SeleksiController::class, 'save'])->name('seleksi.save');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah,siswa']], function(){

@@ -22,11 +22,14 @@
                                     @endif
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
-                                            <h5 class="mb-0">Welcome Back !</h5>
-                                            <p class="text-muted mt-2">Login untuk masuk ke Halaman Dashboard</p>
+                                            <h5 class="mb-0">Lupa Password</h5>
+                                            <p class="text-muted mt-2">Masukkan email yang telah diregistrasi</p>
                                         </div>
-                                        <form class="mt-4 pt-2" action="{{ route('login.post') }}" method="POST">
+                                        <form class="mt-4 pt-2" action="{{ route('password.update') }}" method="POST">
                                             @csrf
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" name="token" value="{{ $token }}" required hidden>
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
                                                 <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
@@ -34,43 +37,33 @@
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
                                                     <div class="flex-grow-1">
-                                                        <label class="form-label">Password</label>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div class="">
-                                                            <a href="{{ route('password.request') }}" class="text-muted">Lupa password?</a>
-                                                        </div>
+                                                        <label class="form-label">Password baru</label>
                                                     </div>
                                                 </div>
-
                                                 <div class="input-group auth-pass-inputgroup">
-                                                    <input type="password" class="form-control" placeholder="Enter password" name="password" aria-label="Password" aria-describedby="password-addon" required>
-                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+                                                    <input type="password" class="form-control" placeholder="Enter password" name="password" aria-label="Password" aria-describedby="password-addon">
+                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline" required></i></button>
                                                 </div>
                                             </div>
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="remember-check">
-                                                        <label class="form-check-label" for="remember-check">
-                                                            Remember me
-                                                        </label>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="flex-grow-1">
+                                                        <label class="form-label">Konfirmasi Password baru</label>
                                                     </div>
                                                 </div>
-
+                                                <div class="input-group auth-pass-inputgroup">
+                                                    <input type="password" class="form-control" placeholder="Enter password confirmation" name="password_confirmation" aria-label="Password" aria-describedby="password-addon">
+                                                    <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline" required></i></button>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 {{-- <a class="btn btn-primary w-100 waves-effect waves-light" href="{{ route('dashboard.index') }}">Log In</a> --}}
-                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
+                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Submit</button>
                                             </div>
                                         </form>
                                         <div class="mt-5 text-center">
                                             <p class="text-muted mb-0"><a href="/"
                                                     class="text-primary fw-semibold"> kembali </a> </p>
-                                        </div>
-                                        <div class="mt-5 text-center">
-                                            <p class="text-muted mb-0">Belum punya akun ? <a href="{{ route('register') }}"
-                                                    class="text-primary fw-semibold"> Daftar Sekarang! </a> </p>
                                         </div>
                                     </div>
                                 </div>

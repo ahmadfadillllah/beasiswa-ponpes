@@ -2,7 +2,7 @@
         <div class="auth-page">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-xxl-3 col-lg-12 col-md-12">
+                    <div class="col-xxl-12 col-lg-12 col-md-12">
                         <div class="auth-full-page-content d-flex p-sm-5 p-4">
                             <div class="w-100">
                                 <div class="d-flex flex-column h-100">
@@ -16,7 +16,7 @@
                                             <h5 class="mb-0">Register Account !</h5>
                                             <p class="text-muted mt-2">Register untuk mendaftar diri ke sistem</p>
                                         </div>
-                                        <form class="mt-4 pt-2" action="{{ route('register.post') }}" method="POST">
+                                        <form class="mt-12 pt-2" action="{{ route('register.post') }}" method="POST">
                                             @csrf
                                             <div class="mb-3">
                                                 <label class="form-label">NIM</label>

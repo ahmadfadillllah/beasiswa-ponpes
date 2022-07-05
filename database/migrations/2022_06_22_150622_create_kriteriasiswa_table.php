@@ -22,6 +22,7 @@ class CreateKriteriasiswaTable extends Migration
             $table->integer('tanggungan_orang_tua');
             $table->string('pekerjaan_orang_tua');
             $table->string('kondisi_orang_tua');
+            $table->string('surat_keterangan_tidak_mampu');
             $table->timestamps();
 
             $table->foreign('id_siswa')->references('id')->on('siswa');

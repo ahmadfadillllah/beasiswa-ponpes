@@ -66,7 +66,7 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request)
-{
+    {
         Auth::logout();
 
         $request->session()->invalidate();
@@ -74,7 +74,12 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
     return redirect()->route('login')->with('notif', 'Anda telah logout');
-}
+    }
+
+    public function forgotpassword()
+    {
+        return view('auth.forgot-password');
+    }
 
 
 }

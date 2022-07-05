@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class KriteriaController extends Controller
 {
@@ -28,6 +30,11 @@ class KriteriaController extends Controller
     {
         // dd($request->all());
         $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);
+        $tanggal_sekarang = date("Y-m-d h-i-sa");
+
+        if($request->hasFile('surat_keterangan_tidak_mampu')){
+            $request->file('surat_keterangan_tidak_mampu')->move('surat_keterangan_tidak_mampu', $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName());
+        }
 
         $siswa = KriteriaSiswa::create([
             'id_siswa' => $request->id_siswa,
@@ -37,7 +44,12 @@ class KriteriaController extends Controller
             'tanggungan_orang_tua' => $request->tanggungan_orang_tua,
             'pekerjaan_orang_tua' => $request->pekerjaan_orang_tua,
             'kondisi_orang_tua' => $request->kondisi_orang_tua,
+            'surat_keterangan_tidak_mampu' => $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName()
         ]);
+
+
+
+
 
         $users = User::where('id', Auth::user()->id)->update(['status' => 'Menunggu Seleksi']);
 

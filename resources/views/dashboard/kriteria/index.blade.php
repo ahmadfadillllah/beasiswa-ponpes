@@ -67,7 +67,7 @@
                         <div class="card-body">
                             <div>
                                 <h5 class="font-size-14 mb-3">Isi dengan sejujur-jujurnya!</h5>
-                                <form action="{{ route('kriteria.update') }}" method="POST">
+                                <form action="{{ route('kriteria.update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                     <div class="row">
 
@@ -163,6 +163,13 @@
                                                     <option value="Cerai">Cerai</option>
                                                     <option value="Lengkap">Lengkap</option>
                                                 </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Surat Keterangan Tidak Mampu</label>
+                                                <input class="form-control" type="file" name="surat_keterangan_tidak_mampu" required>
                                             </div>
                                         </div>
                                     </div>

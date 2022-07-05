@@ -19,28 +19,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C1',
             'bobot' => 'Sangat Rendah',
             'kondisi' => '≤59',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C1',
             'kondisi' => '≥60',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C1',
             'bobot' => 'Sedang',
             'kondisi' => '≥70',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C1',
             'bobot' => 'Tinggi',
             'kondisi' => '≥80',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
@@ -56,28 +56,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C2',
             'kondisi' => '≥7',
             'bobot' => 'Sangat Rendah',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C2',
             'kondisi' => '≥5',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C2',
             'kondisi' => '≥3',
             'bobot' => 'Sedang',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C2',
             'kondisi' => '≥2',
             'bobot' => 'Tinggi',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
@@ -92,28 +92,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C3',
             'kondisi' => '≥3000000',
             'bobot' => 'Sangat Rendah',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C3',
             'kondisi' => '≥2000000',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C3',
             'kondisi' => '≥1000000',
             'bobot' => 'Sedang',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C3',
             'kondisi' => '≥500000',
             'bobot' => 'Tinggi',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
@@ -128,28 +128,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C4',
             'kondisi' => '1',
             'bobot' => 'Sangat Rendah',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C4',
             'kondisi' => '2',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C4',
             'kondisi' => '3',
             'bobot' => 'Sedang',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C4',
             'kondisi' => '4',
             'bobot' => 'Tinggi',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
@@ -164,28 +164,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C5',
             'kondisi' => 'Lain-lain',
             'bobot' => 'Sangat Rendah',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C5',
             'kondisi' => 'Pedagang',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C5',
             'kondisi' => 'Guru',
             'bobot' => 'Sedang',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C5',
             'kondisi' => 'Petani',
             'bobot' => 'Tinggi',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
@@ -200,28 +200,28 @@ class SubKriteriaSeeder extends Seeder
             'kodekriteria' => 'C6',
             'kondisi' => 'Lengkap',
             'bobot' => 'Sangat Rendah',
-            'nilai' => '0',
+            'nilai' => '0.2',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C6',
             'kondisi' => 'Cerai',
             'bobot' => 'Rendah',
-            'nilai' => '0.25',
+            'nilai' => '0.4',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C6',
             'kondisi' => 'Piatu',
             'bobot' => 'Sedang',
-            'nilai' => '0.5',
+            'nilai' => '0.6',
         ]);
 
         SubKriteria::insert([
             'kodekriteria' => 'C6',
             'kondisi' => 'Yatim',
             'bobot' => 'Tinggi',
-            'nilai' => '0.75',
+            'nilai' => '0.8',
         ]);
 
         SubKriteria::insert([
