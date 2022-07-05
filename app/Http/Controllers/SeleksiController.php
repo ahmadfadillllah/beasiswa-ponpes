@@ -15,10 +15,17 @@ class SeleksiController extends Controller
     public function index()
     {
 
-        $siswa = Siswa::join('kriteriasiswa', 'siswa.id', 'kriteriasiswa.id_siswa')->get();
+        $siswa = Siswa::join('kriteriasiswa', 'siswa.id', 'kriteriasiswa.id_siswa')
+        ->join('users', 'siswa.id_users', 'users.id')->where('status', 'Menunggu Seleksi')->get();
+        // dd($siswa);
 
-        $kriteria = Siswa::join('kriteriasiswa', 'siswa.id', 'kriteriasiswa.id_siswa')->get();
+        $kriteria = Siswa::join('kriteriasiswa', 'siswa.id', 'kriteriasiswa.id_siswa')
+        ->join('users', 'siswa.id_users', 'users.id')->where('status', 'Menunggu Seleksi')->get();
         // dd($kriteria);
+
+        if($siswa || $kriteria == NULL){
+            return redirect()->back()->with('notif', 'Data tidak ada');
+        }
 
         $nilai_raport = array();
         $perilaku = array();
@@ -196,7 +203,7 @@ class SeleksiController extends Controller
         $total = $map1;
 
         $data = [
-            'siswa' => $siswa,
+                'siswa' => $siswa,
              'item' => $item,
              'kriteria' => $kriteria,
              'benefit_nilai_raport' => $benefit_nilai_raport,
@@ -209,11 +216,6 @@ class SeleksiController extends Controller
         ];
 
             return view('dashboard.seleksi.index', compact('data'));
-    }
-
-    public function save(Request $request)
-    {
-        dd($request->all());
     }
 }
 

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0 font-size-18">Daftar semua siswa yang telah registrasi</h4>
+                    <h4 class="mb-sm-0 font-size-18">Daftar siswa yang telah lolos kriteria</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -40,7 +40,7 @@
                                         <th>Tempat & Tanggal Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Nama Wali</th>
-                                        <th>Status</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,7 +55,9 @@
                                         <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->nama_wali }}</td>
-                                        <td>{{ $item->status }}</td>
+                                        <td>
+                                            <a href="{{route('daftarbeasiswa.show', $item->id_siswa) }}" class="btn btn-info waves-effect waves-light">Proses</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

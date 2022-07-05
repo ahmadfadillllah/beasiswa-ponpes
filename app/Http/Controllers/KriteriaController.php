@@ -28,7 +28,11 @@ class KriteriaController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->all());
+
+        $request->validate([
+            'surat_keterangan_tidak_mampu' => 'mimes:jpg,bmp,png',
+        ]);
+
         $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);
         $tanggal_sekarang = date("Y-m-d h-i-sa");
 

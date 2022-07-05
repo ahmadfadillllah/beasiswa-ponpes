@@ -170,6 +170,7 @@
                                             <div class="mb-3">
                                                 <label for="choices-single-default" class="form-label font-size-13 text-muted">Surat Keterangan Tidak Mampu</label>
                                                 <input class="form-control" type="file" name="surat_keterangan_tidak_mampu" required>
+                                                <p>File harus dalam bentuk gambar</p>
                                             </div>
                                         </div>
                                     </div>

@@ -155,19 +155,32 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data['kriteria'] as $key => $a)
-                                    <form action="{{ route('seleksi.save') }}" method="post">
+                                    <form action="{{ route('validasisiswa.show') }}" method="post">
                                         @csrf
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td name="nim">{{ $data['siswa'][$key]->nim }}</td>
-                                            <td name="nilai_raport">{{ $data['benefit_nilai_raport'][$key] }}</td>
-                                            <td name="perilaku">{{ $data['cost_perilaku'][$key] }}</td>
-                                            <td name="penghasilan_orang_tua">{{ $data['cost_penghasilan_orang_tua'][$key] }}</td>
-                                            <td name="tanggungan_orang_tua">{{ $data['benefit_tanggungan_orang_tua'][$key] }}</td>
-                                            <td name="pekerjaan_orang_tua">{{ $data['benefit_pekerjaan_orang_tua'][$key] }}</td>
-                                            <td name="kondisi_orang_tua">{{ $data['cost_kondisi_orang_tua'][$key] }}</td>
+                                            <td>{{ $data['siswa'][$key]->nim }}</td>
+                                            <td>{{ $data['benefit_nilai_raport'][$key] }}</td>
+                                            <td>{{ $data['cost_perilaku'][$key] }}</td>
+                                            <td>{{ $data['cost_penghasilan_orang_tua'][$key] }}</td>
+                                            <td>{{ $data['benefit_tanggungan_orang_tua'][$key] }}</td>
+                                            <td>{{ $data['benefit_pekerjaan_orang_tua'][$key] }}</td>
+                                            <td>{{ $data['cost_kondisi_orang_tua'][$key] }}</td>
                                             <td name="total">{{ $data['total'][$key] }}</td>
-                                            <td><button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button></td>
+
+                                            <input type="text" name="id_siswa" value="{{ $data['siswa'][$key]->id_siswa }}" hidden>
+                                            <input type="text" name="id_kriteria_siswa" value="{{ $data['siswa'][$key]->id }}" hidden>
+                                            <input type="text" name="id_users" value="{{ $data['siswa'][$key]->id_users }}" hidden>
+                                            <input type="text" name="nim" value="{{ $data['siswa'][$key]->nim }}" hidden>
+                                            <input type="text" name="surat_keterangan_tidak_mampu" value="{{ $data['siswa'][$key]->surat_keterangan_tidak_mampu }}" hidden>
+                                            <input type="text" name="nilai_raport" value="{{ $data['benefit_nilai_raport'][$key] }}" hidden>
+                                            <input type="text" name="perilaku" value="{{ $data['cost_perilaku'][$key] }}" hidden>
+                                            <input type="text" name="penghasilan_orang_tua" value="{{ $data['cost_penghasilan_orang_tua'][$key] }}" hidden>
+                                            <input type="text" name="tanggungan_orang_tua" value="{{ $data['benefit_tanggungan_orang_tua'][$key] }}" hidden>
+                                            <input type="text" name="pekerjaan_orang_tua" value="{{ $data['benefit_pekerjaan_orang_tua'][$key] }}" hidden>
+                                            <input type="text" name="kondisi_orang_tua" value="{{ $data['cost_kondisi_orang_tua'][$key] }}" hidden>
+                                            <input type="text" name="total" value="{{ $data['total'][$key] }}" hidden>
+                                            <td><button type="submit" class="btn btn-info waves-effect waves-light">Validasi</button></td>
                                         </tr>
                                     </form>
                                     @endforeach

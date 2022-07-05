@@ -9,6 +9,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeleksiController;
+use App\Http\Controllers\ValidasiSiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\PasswordReset;
@@ -98,6 +99,7 @@ Route::group(['middleware' => ['auth', 'checkRole:siswa']], function(){
     Route::get('/dashboard/kriteria', [KriteriaController::class, 'index'])->name('kriteria.index');
     Route::post('/dashboard/kriteria/update', [KriteriaController::class, 'update'])->name('kriteria.update');
 
+
     });
 
 Route::group(['middleware' => ['auth', 'checkRole:stafsekolah']], function(){
@@ -107,8 +109,13 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah']], function(){
 
 //Seleksi
     Route::get('/dashboard/seleksi', [SeleksiController::class, 'index'])->name('seleksi.index');
-    Route::post('/dashboard/seleksi/save', [SeleksiController::class, 'save'])->name('seleksi.save');
+
+//Validasi Siswa
+Route::post('/dashboard/seleksi/validasi-siswa', [ValidasiSiswaController::class, 'show'])->name('validasisiswa.show');
+Route::post('/dashboard/seleksi/validasi-siswa/tolak', [ValidasiSiswaController::class, 'tolak'])->name('validasisiswa.tolak');
+Route::post('/dashboard/seleksi/validasi-siswa/terima', [ValidasiSiswaController::class, 'terima'])->name('validasisiswa.terima');
 });
+
 
 Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah,siswa']], function(){
 
@@ -117,6 +124,7 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah,sisw
 
     //Daftar Beasiswa
         Route::get('/dashboard/daftar-beasiswa', [DaftarBeasiswaController::class, 'index'])->name('daftarbeasiswa.index');
+        Route::get('/dashboard/daftar-beasiswa/show/{id}', [DaftarBeasiswaController::class, 'show'])->name('daftarbeasiswa.show');
 
     //Pengumuman
         Route::get('/dashboard/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
