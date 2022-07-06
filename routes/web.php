@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth', 'checkRole:siswa']], function(){
 
     });
 
-Route::group(['middleware' => ['auth', 'checkRole:stafsekolah']], function(){
+Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah']], function(){
 
     //Data Kriteria
         Route::get('/dashboard/data-kriteria', [DataKriteria::class, 'index'])->name('datakriteria.index');
@@ -116,17 +116,6 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah']], function(){
         Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/tolak', [ValidasiSiswaController::class, 'tolak'])->name('validasisiswa.tolak');
         Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/terima', [ValidasiSiswaController::class, 'terima'])->name('validasisiswa.terima');
 });
-
-Route::group(['middleware' => ['auth', 'checkRole:kepalasekolah']], function(){
-
-    //Seleksi
-        Route::get('/dashboard/seleksi', [SeleksiController::class, 'index'])->name('seleksi.index');
-
-    //Validasi Siswa
-        Route::post('/dashboard/seleksi/validasi-siswa', [ValidasiSiswaController::class, 'show'])->name('validasisiswa.show');
-        Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/tolak', [ValidasiSiswaController::class, 'tolak'])->name('validasisiswa.tolak');
-        Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/terima', [ValidasiSiswaController::class, 'terima'])->name('validasisiswa.terima');
-    });
 
 
 Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah,siswa']], function(){
