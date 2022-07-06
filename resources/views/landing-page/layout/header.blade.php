@@ -78,7 +78,7 @@
                         </div>
                         <div class="menu-right d-none d-lg-flex align-items-center">
                             <a href="{{ route('login') }}" class="login">Login <i class="fas fa-lock"></i></a>
-                            <a href="#" class="theme-btn style-two">Peraih Beasiswa</a>
+                            <a href="{{ route('landing-page.announcement') }}" class="theme-btn style-two">Peraih Beasiswa</a>
                         </div>
                     </div>
                 </div>

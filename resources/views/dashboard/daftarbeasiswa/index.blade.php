@@ -40,7 +40,10 @@
                                         <th>Tempat & Tanggal Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Nama Wali</th>
+                                        <th>Status</th>
+                                        @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
                                         <th>Aksi</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,9 +58,12 @@
                                         <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->nama_wali }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
                                         <td>
                                             <a href="{{route('daftarbeasiswa.show', $item->id_siswa) }}" class="btn btn-info waves-effect waves-light">Proses</a>
                                         </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>

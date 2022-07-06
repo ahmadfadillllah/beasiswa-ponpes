@@ -8,7 +8,7 @@
                     <p class="wow fadeInUp delay-0-4s">Sistem pendukung keputusan penerimaan bantuan beasiswa pondok
                         pesantren Al-Hidayah kaduaja</p>
                 </div>
-                <a href="{{ route('register') }}" class="theme-btn style-two">Daftarkan dirimu<i
+                <a href="{{ route('landing-page.daftarbeasiswa') }}" class="theme-btn style-two">Daftarkan dirimu<i
                         class="fas fa-arrow-right"></i></a>
             </div>
             <div class="col-lg-6">

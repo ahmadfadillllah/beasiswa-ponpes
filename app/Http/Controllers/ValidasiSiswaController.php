@@ -26,7 +26,6 @@ class ValidasiSiswaController extends Controller
             'kondisi_orang_tua' => $request->kondisi_orang_tua,
             'total' => $request->total,
             'surat_keterangan_tidak_mampu' => $request->surat_keterangan_tidak_mampu,
-            'status' => 'Proses Validasi',
         ]);
 
         $updated = User::where('id', $request->id_users)
@@ -40,13 +39,31 @@ class ValidasiSiswaController extends Controller
         return redirect()->back()->with('notif', 'Data siswa gagal diproses');
     }
 
-    public function terima(Request $request)
+    public function terima($id)
     {
-        dd($request->all());
+        $data = ValidasiSiswa::find($id);
+        $updated = User::where('id', $data->id_users)
+              ->update(['status' => 'Diterima']);
+
+
+        if($updated){
+            return redirect()->route('daftarbeasiswa.index')->with('notif', 'Siswa telah diterima');
+        }
+
+        return redirect()->route('daftarbeasiswa.index')->with('notif', 'Data siswa gagal diproses');
     }
 
-    public function tolak(Request $request)
+    public function tolak($id)
     {
-        dd($request->all());
+        $data = ValidasiSiswa::find($id);
+        $updated = User::where('id', $data->id_users)
+              ->update(['status' => 'Ditolak']);
+
+
+        if($updated){
+            return redirect()->route('daftarbeasiswa.index')->with('notif', 'Siswa telah ditolak');
+        }
+
+        return redirect()->route('daftarbeasiswa.index')->with('notif', 'Data siswa gagal diproses');
     }
 }

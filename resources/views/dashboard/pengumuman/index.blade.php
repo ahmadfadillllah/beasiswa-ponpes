@@ -38,25 +38,27 @@
                                         <th>NIM</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Tanggungan Orang Tua</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Total Nilai</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                    </tr>
+                                    @foreach ($siswa as $item)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $item->nim }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->jenis_kelamin }}</td>
+                                            <td>{{ $item->tanggal_lahir }}</td>
+                                            <td>{{ $item->alamat }}</td>
+                                            <td>{{ $item->total }}</td>
+                                            <td>{{ $item->status }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                                <button type="button" class="btn btn-success waves-effect btn-label waves-light"><i class="bx bx-check-double label-icon"></i> Print</button>
+                                <a href="{{ route('pengumuman.cetak') }}"><button type="button" class="btn btn-success waves-effect btn-label waves-light"><i class="bx bx-check-double label-icon"></i> Print</button></a>
                             </table>
                         </div>
 

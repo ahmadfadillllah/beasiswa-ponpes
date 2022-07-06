@@ -25,9 +25,23 @@
                                 <div class="form-group">
                                     <input type="text" name="nim" class="form-control" placeholder="NIM" required="">
                                 </div>
-                                @error('nim')
-                                    {{ $message }}
-                                @enderror
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password"
+                                        required="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password"
+                                        required="">
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -75,7 +89,8 @@
                                         required="">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <textarea name="alamat" rows="4" class="form-control" placeholder="Alamat"
                                         required=""></textarea>
@@ -83,51 +98,12 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
-                                    <button type="button" class="theme-btn" data-toggle="modal" data-target="#exampleModal">
-                                        Lanjut <i class="fas fa-arrow-right"></i>
+                                    <button type="submit" class="theme-btn">
+                                        Registrasi <i class="fas fa-arrow-right"></i>
                                       </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Kriteria</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label>Rata-rata Nilai Rapor</label>
-                                        <div class="form-group">
-                                            <input type="text" name="nilai_rapor" class="form-control" placeholder="90.8"
-                                                required="">
-                                        </div>
-                                        <label>Perilaku</label>
-                                        <div class="form-group">
-                                            <input type="number" name="perilaku" class="form-control" placeholder="2"
-                                                required="">
-                                        </div>
-                                        <label>Penghasilan Orang Tua dalam 1 bulan</label>
-                                        <div class="form-group">
-                                            <input type="number" name="penghasilan_orang_tua" class="form-control" placeholder="2500000"
-                                                required="">
-                                        </div>
-                                        <label>Tanggungan Orang Tua</label>
-                                        <div class="form-group">
-                                            <input type="number" name="tanggungan_orang_tua" class="form-control" placeholder="4"
-                                                required="">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Kirim</button>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
                     </form>
                 </div>
             </div>
