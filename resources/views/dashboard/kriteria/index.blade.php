@@ -49,6 +49,22 @@
                                     </div>
                                 </h6>
                                 @endif
+                                @if (Auth::user()->status == 'Diterima')
+                                <h6 class="mb-12">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-alert-outline me-2"></i>
+                                        Selamat {{ Auth::user()->name }}, kamu berhak mendapatkan beasiswa... untuk info lebih lanjut silahkan menghubungi Staf Sekolah
+                                    </div>
+                                </h6>
+                                @endif
+                                @if (Auth::user()->status == 'Ditolak')
+                                <h6 class="mb-12">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="mdi mdi-alert-outline me-2"></i>
+                                        Mohon maaf {{ Auth::user()->name }}, saat ini kamu belum diterima, jangan berkecil hati tetap semangat
+                                    </div>
+                                </h6>
+                                @endif
                             </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
