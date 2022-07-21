@@ -25,20 +25,20 @@ class LandingPageController extends Controller
 
     public function prosesdaftarbeasiswa(Request $request)
     {
-
-        $validation = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required|confirmed',
-            'nim' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'no_hp' => 'required',
-            'jenis_kelamin' => 'required',
-            'nama_wali' => 'required',
-        ]);
+        // dd($request->all());
+        // $validation = $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required|confirmed',
+        //     'nim' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'alamat' => 'required',
+        //     'agama' => 'required',
+        //     'no_hp' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'nama_wali' => 'required',
+        // ]);
 
         $users = User::create([
             'name' => $request->nama_lengkap,
@@ -62,7 +62,7 @@ class LandingPageController extends Controller
             'nama_wali' => $request->nama_wali,
         ]);
 
-        if($validation && $users && $siswa){
+        if($users && $siswa){
             return redirect()->route('login')->with('notif', 'Berhasil terdaftar ke sistem, silahkan login');
         }
 

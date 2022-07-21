@@ -17,8 +17,7 @@
                           </div>
                         @endif
                     </div>
-                    <form id="contact-page-form" class="contact-form-three pt-35"
-                        action="{{ route('landing-page.prosesdaftarbeasiswa') }}" method="post">
+                    <form id="contact-page-form" class="contact-form-three pt-35" action="{{ route('landing-page.prosesdaftarbeasiswa') }}" method="post">
                         @csrf()
                         <div class="row clearfix">
                             <div class="col-sm-6">
