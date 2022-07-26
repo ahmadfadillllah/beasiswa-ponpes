@@ -113,8 +113,7 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah']], 
 
     //Validasi Siswa
         Route::post('/dashboard/seleksi/validasi-siswa', [ValidasiSiswaController::class, 'show'])->name('validasisiswa.show');
-        Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/tolak', [ValidasiSiswaController::class, 'tolak'])->name('validasisiswa.tolak');
-        Route::get('/dashboard/seleksi/validasi-siswa/show/{id}/terima', [ValidasiSiswaController::class, 'terima'])->name('validasisiswa.terima');
+
 });
 
 
@@ -126,6 +125,9 @@ Route::group(['middleware' => ['auth', 'checkRole:stafsekolah,kepalasekolah,sisw
     //Daftar Beasiswa
         Route::get('/dashboard/daftar-beasiswa', [DaftarBeasiswaController::class, 'index'])->name('daftarbeasiswa.index');
         Route::get('/dashboard/daftar-beasiswa/show/{id}', [DaftarBeasiswaController::class, 'show'])->name('daftarbeasiswa.show');
+
+        Route::get('/dashboard/daftar-beasiswa/show/{id}/tolak', [DaftarBeasiswaController::class, 'tolak'])->name('beasiswa.tolak');
+        Route::get('/dashboard/daftar-beasiswa/show/{id}/terima', [DaftarBeasiswaController::class, 'terima'])->name('beasiswa.terima');
 
     //Pengumuman
         Route::get('/dashboard/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');

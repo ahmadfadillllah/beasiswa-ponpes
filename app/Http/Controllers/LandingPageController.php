@@ -40,6 +40,22 @@ class LandingPageController extends Controller
         //     'nama_wali' => 'required',
         // ]);
 
+        // $request->validate([
+        //     'name' => 'required|max:20',
+        //     'email' => 'required|email',
+        //     'password' => 'required',
+        //     'nim' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'alamat' => 'required',
+        //     'agama' => 'required',
+        //     'no_hp' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'nama_wali' => 'required',
+        // ]);
+
+
+
         $users = User::create([
             'name' => $request->nama_lengkap,
             'email' => $request->email,
@@ -73,7 +89,7 @@ class LandingPageController extends Controller
     {
         $siswa = Siswa::join('validasi_siswa', 'siswa.id', 'validasi_siswa.id_siswa')
         ->join('users', 'siswa.id_users', 'users.id')
-        ->where('status', '!=', 'Aktif')->get();
+        ->where('status', '=', 'Diterima')->get();
 
         return view('landing-page.announcement', compact('siswa'));
     }

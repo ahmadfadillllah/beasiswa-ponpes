@@ -23,17 +23,26 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" name="nim" class="form-control" placeholder="NIM" required="">
+                                    @error('nim')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control" placeholder="Password"
                                         required="">
+                                    @error('password')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -46,18 +55,27 @@
                                 <div class="form-group">
                                     <input type="text" name="nama_lengkap" class="form-control"
                                         placeholder="Nama Lengkap" required="">
+                                        @error('nama_lengkap')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" name="tempat_lahir" class="form-control"
                                         placeholder="Tempat Lahir" required="">
+                                        @error('tempat_lahir')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="date" name="tanggal_lahir" class="form-control"
                                         placeholder="Tanggal Lahir" required="">
+                                        @error('tanggal_lahir')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -68,24 +86,36 @@
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
+                                    @error('jenis_kelamin')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" name="agama" class="form-control" placeholder="Agama"
                                         required="">
+                                        @error('agama')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" name="nama_wali" class="form-control"
                                         placeholder="Nama Orang Tua / Wali" required="">
+                                        @error('nama_wali')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" name="no_hp" class="form-control" placeholder="No. Handphone"
+                                    <input type="number" name="no_hp" class="form-control" placeholder="No. Handphone"
                                         required="">
+                                        @error('no_hp')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -93,6 +123,9 @@
                                 <div class="form-group">
                                     <textarea name="alamat" rows="4" class="form-control" placeholder="Alamat"
                                         required=""></textarea>
+                                        @error('alamat')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12">

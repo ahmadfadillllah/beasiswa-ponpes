@@ -21,34 +21,58 @@
                                             <div class="mb-3">
                                                 <label class="form-label">NIM</label>
                                                 <input type="text" class="form-control" name="nim" placeholder="Masukkan NIM" required>
+                                            @error('nim')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
                                                 <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required>
+                                            @error('email')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Nama Lengkap</label>
                                                 <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukkan Nama Lengkap" required>
+                                            @error('nama_lengkap')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Tempat Lahir</label>
                                                 <input type="text" class="form-control" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" required>
+                                            @error('tempat_lahir')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Tanggal Lahir</label>
                                                 <input type="date" class="form-control" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir" required>
+                                            @error('tanggal_lahir')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Alamat</label>
                                                 <input type="text" class="form-control" name="alamat" placeholder="Masukkan Alamat" required>
+                                            @error('alamat')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Agama</label>
                                                 <input type="text" class="form-control" name="agama" placeholder="Masukkan Agama" required>
+                                            @error('agama')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">No. Handphone</label>
                                                 <input type="text" class="form-control" name="no_hp" placeholder="Masukkan No. Handphone" required>
+                                            @error('no_hp')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Jenis Kelamin</label>
@@ -57,10 +81,16 @@
                                                     <option value="Laki-laki">Laki-laki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                                   </select>
+                                            @error('jenis_kelamin')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Nama Wali</label>
                                                 <input type="text" class="form-control" name="nama_wali" placeholder="Masukkan Nama Wali" required>
+                                            @error('nama_wali')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
@@ -72,6 +102,9 @@
                                                     <input type="password" class="form-control" placeholder="Enter password" name="password" aria-label="Password" aria-describedby="password-addon">
                                                     <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline" required></i></button>
                                                 </div>
+                                            @error('password')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">

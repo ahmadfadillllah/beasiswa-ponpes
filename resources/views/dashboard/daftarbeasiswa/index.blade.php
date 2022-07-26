@@ -61,7 +61,7 @@
                                         <td>{{ $item->status }}</td>
                                         @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
                                         <td>
-                                            <a href="{{route('daftarbeasiswa.show', $item->id_siswa) }}" class="btn btn-info waves-effect waves-light">Proses</a>
+                                            <a href="{{route('daftarbeasiswa.show', $item->id) }}" class="btn btn-info waves-effect waves-light">Proses</a>
                                         </td>
                                         @endif
                                     </tr>

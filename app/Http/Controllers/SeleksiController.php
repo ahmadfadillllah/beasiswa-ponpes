@@ -23,9 +23,9 @@ class SeleksiController extends Controller
         ->join('users', 'siswa.id_users', 'users.id')->where('status', 'Menunggu Seleksi')->get();
         // dd($kriteria);
 
-        if($siswa || $kriteria == NULL){
-            return redirect()->back()->with('notif', 'Data tidak ada');
-        }
+        // if($siswa or $kriteria == notNullValue()){
+        //     return redirect()->back()->with('notif', 'Data tidak ada');
+        // }
 
         $nilai_raport = array();
         $perilaku = array();

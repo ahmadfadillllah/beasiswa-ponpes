@@ -34,7 +34,6 @@
 
             </div><!-- end col -->
             <div class="col-md-6 col-xl-6">
-                <form>
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Detail Skor</h4>
@@ -101,16 +100,16 @@
                         </li>
                     </ul>
                 </div>
-                    <a href="{{ route('validasisiswa.terima', $data->id) }}"><button type="submit" class="btn btn-success waves-effect waves-light">
+                    <a href="{{ route('beasiswa.terima', $data->id) }}"><button type="submit" class="btn btn-success waves-effect waves-light">
                         <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Terima
                     </button></a>
-                    <a href="{{ route('validasisiswa.tolak', $data->id) }}"><button type="submit" class="btn btn-warning waves-effect waves-light">
+                    <a href="{{ route('beasiswa.tolak', $data->id) }}"><button type="submit" class="btn btn-warning waves-effect waves-light">
                         <i class="bx bx-block font-size-16 align-middle me-2"></i> Tolak
                     </button></a>
                     <a href="{{ route('daftarbeasiswa.index') }}"><button type="button" class="btn btn-info waves-effect waves-light">
                         <i class="bx bx-arrow-left font-size-16 align-middle me-2"></i> Kembali
                     </button></a>
-            </form>
+
 
             </div><!-- end col -->
 

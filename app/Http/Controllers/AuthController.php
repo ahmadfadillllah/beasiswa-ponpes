@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -35,6 +36,19 @@ class AuthController extends Controller
     public function registerpost(Request $request)
     {
         // dd($request->all());
+        // $request->validate([
+        //     'name' => 'required|max:20',
+        //     'email' => 'required|email',
+        //     'password' => 'required',
+        //     'nim' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'alamat' => 'required',
+        //     'agama' => 'required',
+        //     'no_hp' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'nama_wali' => 'required',
+        // ]);
 
         $users = User::create([
             'name' => $request->nama_lengkap,
