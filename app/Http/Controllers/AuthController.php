@@ -35,20 +35,19 @@ class AuthController extends Controller
     }
     public function registerpost(Request $request)
     {
-        // dd($request->all());
-        // $request->validate([
-        //     'name' => 'required|max:20',
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        //     'nim' => 'required',
-        //     'tempat_lahir' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'alamat' => 'required',
-        //     'agama' => 'required',
-        //     'no_hp' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'nama_wali' => 'required',
-        // ]);
+        $request->validate([
+            'nama_lengkap' => 'required|max:20',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+            'nim' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'agama' => 'required',
+            'no_hp' => 'required',
+            'jenis_kelamin' => 'required',
+            'nama_wali' => 'required',
+        ]);
 
         $users = User::create([
             'name' => $request->nama_lengkap,
