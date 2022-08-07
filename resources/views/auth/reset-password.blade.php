@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
+                                                <input type="email" class="form-control" name="email" placeholder="Masukkan kembali email" required>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
