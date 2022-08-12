@@ -30,7 +30,13 @@ class KriteriaController extends Controller
     {
 
         $request->validate([
-            'surat_keterangan_tidak_mampu' => 'mimes:jpg,bmp,png',
+            'nilai_raport' => 'required|numeric',
+            'perilaku' => 'required',
+            'penghasilan_orang_tua' => 'required|numeric',
+            'tanggungan_orang_tua' => 'required',
+            'pekerjaan_orang_tua' => 'required',
+            'kondisi_orang_tua' => 'required',
+            'surat_keterangan_tidak_mampu' => 'required|mimes:jpg,bmp,png',
         ]);
 
         $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);

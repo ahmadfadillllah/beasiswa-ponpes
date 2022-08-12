@@ -98,6 +98,9 @@
                                             <div class="mb-3">
                                                 <label for="choices-single-default" class="form-label font-size-13 text-muted">Rata - Rata Nilai Raport</label>
                                                 <input class="form-control" type="text" name="nilai_raport" required>
+                                                @error('nilai_raport')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -107,7 +110,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="perilaku"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="-" selected>Pilih berapa kali alfa</option>
+                                                    <option selected>Pilih berapa kali alfa</option>
                                                     <option value="0">Tidak ada alfa</option>
                                                     <option value="1">1 kali alfa</option>
                                                     <option value="2">2 kali alfa</option>
@@ -119,6 +122,9 @@
                                                     <option value="8">8 kali alfa</option>
                                                     <option value="9">9 kali alfa</option>
                                                 </select>
+                                                @error('perilaku')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -135,7 +141,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="tanggungan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="-" selected>Pilih berapa tanggungan orang tua</option>
+                                                    <option selected>Pilih berapa tanggungan orang tua</option>
                                                     <option value="0">Tidak ada</option>
                                                     <option value="1">1 orang</option>
                                                     <option value="2">2 orang</option>
@@ -147,6 +153,9 @@
                                                     <option value="8">8 orang</option>
                                                     <option value="9">9 orang</option>
                                                 </select>
+                                                @error('tanggungan_orang_tua')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -156,13 +165,16 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="pekerjaan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="-" selected>Pilih pekerjaan orang tua</option>
+                                                    <option selected>Pilih pekerjaan orang tua</option>
                                                     <option value="Tidak bekerja">Tidak bekerja</option>
                                                     <option value="Petani">Petani</option>
                                                     <option value="Guru">Guru</option>
                                                     <option value="Pedagang">Pedagang</option>
                                                     <option value="Lain-lain">Lain-lain</option>
                                                 </select>
+                                                @error('pekerjaan_orang_tua')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -172,13 +184,16 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="kondisi_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="-" selected>Pilih kondisi orang tua</option>
+                                                    <option selected>Pilih kondisi orang tua</option>
                                                     <option value="Yatim Piatu">Yatim Piatu</option>
                                                     <option value="Yatim">Yatim</option>
                                                     <option value="Piatu">Piatu</option>
                                                     <option value="Cerai">Cerai</option>
                                                     <option value="Lengkap">Lengkap</option>
                                                 </select>
+                                                @error('kondisi_orang_tua')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -188,6 +203,9 @@
                                                 <input class="form-control" type="file" name="surat_keterangan_tidak_mampu" required>
                                                 <p>File harus dalam bentuk gambar</p>
                                             </div>
+                                            @error('surat_keterangan_tidak_mampu')
+                                            <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 <!-- end row -->
