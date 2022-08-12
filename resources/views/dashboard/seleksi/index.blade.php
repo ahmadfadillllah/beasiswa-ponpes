@@ -179,7 +179,7 @@
                                             <input type="text" name="tanggungan_orang_tua" value="{{ $data['benefit_tanggungan_orang_tua'][$key] }}" hidden>
                                             <input type="text" name="pekerjaan_orang_tua" value="{{ $data['benefit_pekerjaan_orang_tua'][$key] }}" hidden>
                                             <input type="text" name="kondisi_orang_tua" value="{{ $data['cost_kondisi_orang_tua'][$key] }}" hidden>
-                                            <input type="text" name="total" value="{{ $data['total'][$key]->sortDesc() }}" hidden>
+                                            <input type="text" name="total" value="{{ $data['total'][$key] }}" hidden>
                                             <td><button type="submit" class="btn btn-info waves-effect waves-light">Validasi</button></td>
                                         </tr>
                                     </form>
