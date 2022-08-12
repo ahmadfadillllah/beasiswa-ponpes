@@ -204,7 +204,8 @@ class SeleksiController extends Controller
         $pekerjaan_orang_tua, $benefit_pekerjaan_orang_tua,
         $kondisi_orang_tua, $cost_kondisi_orang_tua);
 
-        $total = collect($map1);
+        $total = $map1;
+        dd($total);
 
         $data = [
                 'siswa' => $siswa,
