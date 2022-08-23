@@ -188,12 +188,12 @@ class SeleksiController extends Controller
         $single_kondisi_orang_tua_normalisasi
 
         ){
-            $hasil1 = $single_nilai_raport * $single_nilai_raport_normalisasi;
-            $hasil2 = $single_perilaku * $single_perilaku_normalisasi;
-            $hasil3 = $single_penghasilan_orang_tua * $single_penghasilan_orang_tua_normalisasi;
-            $hasil4 = $single_tanggungan_orang_tua * $single_tanggungan_orang_tua_normalisasi;
-            $hasil5 = $single_pekerjaan_orang_tua * $single_pekerjaan_orang_tua_normalisasi;
-            $hasil6 = $single_kondisi_orang_tua * $single_kondisi_orang_tua_normalisasi;
+            $hasil1 = $single_nilai_raport_normalisasi * 0.15;
+            $hasil2 = $single_perilaku_normalisasi * 0.15;
+            $hasil3 = $single_penghasilan_orang_tua_normalisasi * 0.15;
+            $hasil4 = $single_tanggungan_orang_tua_normalisasi * 0.2;
+            $hasil5 = $single_pekerjaan_orang_tua_normalisasi * 0.15;
+            $hasil6 = $single_kondisi_orang_tua_normalisasi * 0.2;
 
             return $hasil1 + $hasil2 + $hasil3 + $hasil4 + $hasil5 + $hasil6;
         },
