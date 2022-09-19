@@ -190,10 +190,10 @@ class SeleksiController extends Controller
         ){
             $hasil1 = $single_nilai_raport_normalisasi * 0.15;
             $hasil2 = $single_perilaku_normalisasi * 0.15;
-            $hasil3 = $single_penghasilan_orang_tua_normalisasi * 0.15;
-            $hasil4 = $single_tanggungan_orang_tua_normalisasi * 0.2;
+            $hasil3 = $single_penghasilan_orang_tua_normalisasi * 0.25;
+            $hasil4 = $single_tanggungan_orang_tua_normalisasi * 0.15;
             $hasil5 = $single_pekerjaan_orang_tua_normalisasi * 0.15;
-            $hasil6 = $single_kondisi_orang_tua_normalisasi * 0.2;
+            $hasil6 = $single_kondisi_orang_tua_normalisasi * 0.15;
 
             return $hasil1 + $hasil2 + $hasil3 + $hasil4 + $hasil5 + $hasil6;
         },

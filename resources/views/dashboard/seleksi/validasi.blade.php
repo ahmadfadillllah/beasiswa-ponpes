@@ -26,14 +26,14 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-md-6 col-xl-6">
+            {{-- <div class="col-md-6 col-xl-6">
 
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{ asset('surat_keterangan_tidak_mampu') }}/{{ $data['surat_keterangan_tidak_mampu'] }}" alt="Card image cap">
                 </div>
 
-            </div><!-- end col -->
-            <div class="col-md-6 col-xl-6">
+            </div><!-- end col --> --}}
+            <div class="col-md-12 col-xl-12">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Detail Skor</h4>
@@ -55,6 +55,14 @@
                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Nilai Raport</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="nilai_raport" class="form-control" id="horizontal-firstname-input" value="{{ $data['nilai_raport'] }}" readonly>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row mb-4">
+                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Perilaku</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="perilaku" class="form-control" id="horizontal-firstname-input" value="{{ $data['perilaku'] }}" readonly>
                                 </div>
                             </div>
                         </li>

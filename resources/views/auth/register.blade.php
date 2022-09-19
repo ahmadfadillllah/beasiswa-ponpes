@@ -20,7 +20,7 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label class="form-label">NIM</label>
-                                                <input type="text" class="form-control" name="nim" placeholder="Masukkan NIM" required>
+                                                <input type="number" class="form-control" name="nim" placeholder="Masukkan NIM" required>
                                             @error('nim')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror

@@ -110,8 +110,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="perilaku"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option selected>Pilih berapa kali alfa</option>
-                                                    <option value="0">Tidak ada alfa</option>
+                                                    <option value="0" selected>Tidak ada alfa</option>
                                                     <option value="1">1 kali alfa</option>
                                                     <option value="2">2 kali alfa</option>
                                                     <option value="3">3 kali alfa</option>
@@ -141,8 +140,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="tanggungan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option selected>Pilih berapa tanggungan orang tua</option>
-                                                    <option value="0">Tidak ada</option>
+                                                    <option value="0" selected>Tidak ada tanggungan</option>
                                                     <option value="1">1 orang</option>
                                                     <option value="2">2 orang</option>
                                                     <option value="3">3 orang</option>
@@ -165,8 +163,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="pekerjaan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option selected>Pilih pekerjaan orang tua</option>
-                                                    <option value="Tidak bekerja">Tidak bekerja</option>
+                                                    <option value="Tidak bekerja" selected>Tidak bekerja</option>
                                                     <option value="Petani">Petani</option>
                                                     <option value="Guru">Guru</option>
                                                     <option value="Pedagang">Pedagang</option>
@@ -184,8 +181,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="kondisi_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option selected>Pilih kondisi orang tua</option>
-                                                    <option value="Yatim Piatu">Yatim Piatu</option>
+                                                    <option value="Yatim Piatu" selected>Yatim Piatu</option>
                                                     <option value="Yatim">Yatim</option>
                                                     <option value="Piatu">Piatu</option>
                                                     <option value="Cerai">Cerai</option>
@@ -197,7 +193,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12 col-md-6">
+                                        {{-- <div class="col-lg-12 col-md-6">
                                             <div class="mb-3">
                                                 <label for="choices-single-default" class="form-label font-size-13 text-muted">Surat Keterangan Tidak Mampu</label>
                                                 <input class="form-control" type="file" name="surat_keterangan_tidak_mampu" required>
@@ -206,7 +202,7 @@
                                             @error('surat_keterangan_tidak_mampu')
                                             <div class="text-danger">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 <!-- end row -->
 

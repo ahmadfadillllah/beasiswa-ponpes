@@ -30,7 +30,7 @@ class LandingPageController extends Controller
             'nama_lengkap' => 'required|max:20',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6',
-            'nim' => 'required',
+            'nim' => 'required|numeric|min:10',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',

@@ -25,7 +25,6 @@ class CreateValidasiSiswaTable extends Migration
             $table->double('pekerjaan_orang_tua');
             $table->double('kondisi_orang_tua');
             $table->double('total');
-            $table->string('surat_keterangan_tidak_mampu');
             $table->timestamps();
 
             $table->foreign('id_siswa')->references('id')->on('siswa');

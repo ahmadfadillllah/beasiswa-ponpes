@@ -28,23 +28,24 @@ class KriteriaController extends Controller
 
     public function update(Request $request)
     {
+        // dd($request->all());
 
-        $request->validate([
-            'nilai_raport' => 'required|numeric',
-            'perilaku' => 'required',
-            'penghasilan_orang_tua' => 'required|numeric',
-            'tanggungan_orang_tua' => 'required',
-            'pekerjaan_orang_tua' => 'required',
-            'kondisi_orang_tua' => 'required',
-            'surat_keterangan_tidak_mampu' => 'required|mimes:jpg,bmp,png',
-        ]);
+        // $request->validate([
+        //     'nilai_raport' => 'required|numeric',
+        //     'perilaku' => 'required',
+        //     'penghasilan_orang_tua' => 'required|numeric',
+        //     'tanggungan_orang_tua' => 'required',
+        //     'pekerjaan_orang_tua' => 'required',
+        //     'kondisi_orang_tua' => 'required',
+        //     // 'surat_keterangan_tidak_mampu' => 'required|mimes:jpg,bmp,png',
+        // ]);
 
         $penghasilan_orang_tua = Str::replace('.', '', $request->penghasilan_orang_tua);
-        $tanggal_sekarang = date("Y-m-d h-i-sa");
+        // $tanggal_sekarang = date("Y-m-d h-i-sa");
 
-        if($request->hasFile('surat_keterangan_tidak_mampu')){
-            $request->file('surat_keterangan_tidak_mampu')->move('surat_keterangan_tidak_mampu', $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName());
-        }
+        // if($request->hasFile('surat_keterangan_tidak_mampu')){
+        //     $request->file('surat_keterangan_tidak_mampu')->move('surat_keterangan_tidak_mampu', $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName());
+        // }
 
         $siswa = KriteriaSiswa::create([
             'id_siswa' => $request->id_siswa,
@@ -54,16 +55,13 @@ class KriteriaController extends Controller
             'tanggungan_orang_tua' => $request->tanggungan_orang_tua,
             'pekerjaan_orang_tua' => $request->pekerjaan_orang_tua,
             'kondisi_orang_tua' => $request->kondisi_orang_tua,
-            'surat_keterangan_tidak_mampu' => $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName()
+            // 'surat_keterangan_tidak_mampu' => $tanggal_sekarang.'-'.$request->file('surat_keterangan_tidak_mampu')->getClientOriginalName()
         ]);
 
-
-
-
-
         $users = User::where('id', Auth::user()->id)->update(['status' => 'Menunggu Seleksi']);
+        // dd($users);
 
-        if($siswa){
+        if($siswa && $users){
             return redirect()->route('kriteria.index')->with('notif', 'Kriteria berhasil dikirimkan');
         }
 

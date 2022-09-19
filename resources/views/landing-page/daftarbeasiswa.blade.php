@@ -22,7 +22,7 @@
                         <div class="row clearfix">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" name="nim" class="form-control" placeholder="NIM" required="">
+                                    <input type="number" name="nim" class="form-control" placeholder="NIM" required="">
                                     @error('nim')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

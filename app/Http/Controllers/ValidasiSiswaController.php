@@ -25,7 +25,7 @@ class ValidasiSiswaController extends Controller
             'pekerjaan_orang_tua' => $request->pekerjaan_orang_tua,
             'kondisi_orang_tua' => $request->kondisi_orang_tua,
             'total' => $request->total,
-            'surat_keterangan_tidak_mampu' => $request->surat_keterangan_tidak_mampu,
+            // 'surat_keterangan_tidak_mampu' => $request->surat_keterangan_tidak_mampu,
         ]);
 
         $updated = User::where('id', $request->id_users)
