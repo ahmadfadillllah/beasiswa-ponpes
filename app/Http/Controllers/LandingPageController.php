@@ -34,7 +34,7 @@ class LandingPageController extends Controller
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required|max:30',
-            'agama' => 'required',
+            'agama' => 'required|max:10',
             'no_hp' => 'required|max:13',
             'jenis_kelamin' => 'required',
             'nama_wali' => 'required',
