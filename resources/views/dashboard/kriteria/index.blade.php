@@ -163,7 +163,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="pekerjaan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="Tidak bekerja" selected>Tidak bekerja</option>
+                                                    <option value="Tidak Bekerja" selected>Tidak Bekerja</option>
                                                     <option value="Petani">Petani</option>
                                                     <option value="Guru">Guru</option>
                                                     <option value="Pedagang">Pedagang</option>

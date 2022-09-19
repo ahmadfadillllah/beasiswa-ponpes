@@ -19,9 +19,8 @@ class DaftarBeasiswaController extends Controller
     {
         $siswa = ValidasiSiswa::join('siswa', 'validasi_siswa.id_siswa', 'siswa.id')
         ->join('users', 'validasi_siswa.id_users', 'users.id')
-        ->select('validasi_siswa.id','validasi_siswa.id_users', 'siswa.nim', 'users.name', 'siswa.tempat_lahir', 'siswa.tanggal_lahir', 'siswa.jenis_kelamin', 'siswa.nama_wali', 'users.status')
-        ->get();
-
+        ->select('validasi_siswa.id','validasi_siswa.id_users', 'siswa.nim', 'users.name', 'siswa.tempat_lahir', 'siswa.tanggal_lahir', 'siswa.jenis_kelamin', 'siswa.nama_wali', 'users.status', 'validasi_siswa.total')
+        ->orderBy('total', 'desc')->get();
 
         // dd($siswa);
 

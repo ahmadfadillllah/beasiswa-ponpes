@@ -40,6 +40,7 @@
                                         <th>Tempat & Tanggal Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Nama Wali</th>
+                                        <th>Ranking</th>
                                         <th>Status</th>
                                         @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
                                         <th>Aksi</th>
@@ -47,17 +48,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 1;
-                                    ?>
                                     @foreach ($siswa as $item)
                                     <tr>
-                                        <th scope="row"><?= $no++ ?></th>
+                                        <th>{{ $loop->iteration }}</th>
                                         <td>{{ $item->nim }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->nama_wali }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->status }}</td>
                                         @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
                                         <td>

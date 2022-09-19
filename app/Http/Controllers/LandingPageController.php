@@ -29,15 +29,15 @@ class LandingPageController extends Controller
         $request->validate([
             'nama_lengkap' => 'required|max:30',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
-            'nim' => 'required|numeric|min:10|max:11',
-            'tempat_lahir' => 'required',
+            'password' => 'required|confirmed|min:6|max:15',
+            'nim' => 'required|min:10|max:11',
+            'tempat_lahir' => 'required|max:30',
             'tanggal_lahir' => 'required',
             'alamat' => 'required|max:30',
-            'agama' => 'required|max:10',
+            'agama' => 'required|max:11',
             'no_hp' => 'required|max:13',
             'jenis_kelamin' => 'required',
-            'nama_wali' => 'required',
+            'nama_wali' => 'required|max:30',
         ]);
 
         $users = User::create([
