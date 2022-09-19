@@ -82,7 +82,7 @@
                                 <div class="form-group">
                                     <select class="form-select" aria-label="Default select example"
                                         name="jenis_kelamin">
-                                        <option selected>Jenis Kelamin</option>
+                                        <option selected disabled>Jenis Kelamin</option>
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>

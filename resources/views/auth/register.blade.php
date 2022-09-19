@@ -77,7 +77,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Jenis Kelamin</label>
                                                 <select class="form-select" aria-label="Default select example" name="jenis_kelamin">
-                                                    <option selected>Pilih jenis kelamin</option>
+                                                    <option selected disabled>Pilih jenis kelamin</option>
                                                     <option value="Laki-laki">Laki-laki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                                   </select>
