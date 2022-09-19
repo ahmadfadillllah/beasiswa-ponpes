@@ -36,13 +36,13 @@ class AuthController extends Controller
     public function registerpost(Request $request)
     {
         $request->validate([
-            'nama_lengkap' => 'required|max:20',
+            'nama_lengkap' => 'required|max:30',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6',
             'nim' => 'required|numeric|min:10|max:11',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'alamat' => 'required',
+            'alamat' => 'required|max:30',
             'agama' => 'required',
             'no_hp' => 'required|max:13',
             'jenis_kelamin' => 'required',
