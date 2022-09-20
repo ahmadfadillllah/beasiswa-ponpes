@@ -140,8 +140,7 @@
                                                 <select class="form-control"
                                                     id="choices-single-default" name="tanggungan_orang_tua"
                                                     placeholder="This is a search placeholder" required>
-                                                    <option value="0" selected>Tidak ada tanggungan</option>
-                                                    <option value="1">1 orang</option>
+                                                    <option value="1" selected>1 orang</option>
                                                     <option value="2">2 orang</option>
                                                     <option value="3">3 orang</option>
                                                     <option value="4">4 orang</option>
