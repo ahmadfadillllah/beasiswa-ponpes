@@ -41,6 +41,7 @@
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Total Nilai</th>
+                                        <th>Ranking</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -54,6 +55,7 @@
                                             <td>{{ $item->tanggal_lahir }}</td>
                                             <td>{{ $item->alamat }}</td>
                                             <td>{{ $item->total }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>
                                     @endforeach

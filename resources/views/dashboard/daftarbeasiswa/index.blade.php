@@ -40,6 +40,7 @@
                                         <th>Tempat & Tanggal Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Nama Wali</th>
+                                        <th>Total</th>
                                         <th>Ranking</th>
                                         <th>Status</th>
                                         @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')
@@ -56,6 +57,7 @@
                                         <td>{{ $item->tempat_lahir }}, {{ $item->tanggal_lahir }}</td>
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->nama_wali }}</td>
+                                        <td>{{ $item->total }}</td>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->status }}</td>
                                         @if (Auth::user()->role == 'stafsekolah' || Auth::user()->role == 'kepalasekolah')

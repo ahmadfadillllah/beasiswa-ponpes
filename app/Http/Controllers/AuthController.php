@@ -36,7 +36,7 @@ class AuthController extends Controller
     public function registerpost(Request $request)
     {
         $request->validate([
-            'nama_lengkap' => 'required|max:30',
+            'nama_lengkap' => 'required|max:30|regex:/^[a-zA-Z]+$/u',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6|max:15',
             'nim' => 'required|min:10|max:11',
@@ -46,7 +46,7 @@ class AuthController extends Controller
             'agama' => 'required|max:11|regex:/^[a-zA-Z]+$/u',
             'no_hp' => 'required|max:13',
             'jenis_kelamin' => 'required',
-            'nama_wali' => 'required|max:30',
+            'nama_wali' => 'required|max:30|regex:/^[a-zA-Z]+$/u',
         ]);
 
         $users = User::create([

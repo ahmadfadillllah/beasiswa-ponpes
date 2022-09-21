@@ -17,7 +17,7 @@ class PengumumanController extends Controller
     {
         $siswa = Siswa::join('validasi_siswa', 'siswa.id', 'validasi_siswa.id_siswa')
         ->join('users', 'siswa.id_users', 'users.id')
-        ->where('status', '!=', 'Aktif')->get();
+        ->where('status', '!=', 'Aktif')->orderBy('total', 'desc')->get();
 
         return view('dashboard.pengumuman.index', compact('siswa'));
     }
