@@ -84,15 +84,15 @@ class SeleksiController extends Controller
             array_push($penghasilan_orang_tua, $item->penghasilan_orang_tua);
 
             //Tanggungan Orang Tua
-            if ($item->tanggungan_orang_tua >=5){
+            if ($item->tanggungan_orang_tua >=9){
                 $item->tanggungan_orang_tua = 1;
-            }else if ($item->tanggungan_orang_tua =4){
+            }else if ($item->tanggungan_orang_tua =7 or $item->tanggungan_orang_tua =8){
                 $item->tanggungan_orang_tua = 0.8;
-            }else if ($item->tanggungan_orang_tua =3){
+            }else if ($item->tanggungan_orang_tua =5 or $item->tanggungan_orang_tua =6){
                 $item->tanggungan_orang_tua = 0.6;
-            }else if ($item->tanggungan_orang_tua =2){
+            }else if ($item->tanggungan_orang_tua =3 or $item->tanggungan_orang_tua =4){
                 $item->tanggungan_orang_tua = 0.4;
-            }else if ($item->tanggungan_orang_tua =1){
+            }else if ($item->tanggungan_orang_tua =1 or $item->tanggungan_orang_tua =2){
                 $item->tanggungan_orang_tua = 0.2;
             }
             array_push($tanggungan_orang_tua, $item->tanggungan_orang_tua);
