@@ -27,7 +27,7 @@ class LandingPageController extends Controller
     {
 
         $request->validate([
-            'nama_lengkap' => 'required|max:30',
+            'nama_lengkap' => 'required|max:30|regex:/^[a-zA-Z \.\,]+$/',
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6|max:15',
             'nim' => 'required|min:10|max:11',
