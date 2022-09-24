@@ -31,13 +31,13 @@ class LandingPageController extends Controller
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6|max:15',
             'nim' => 'required|min:10|max:11',
-            'tempat_lahir' => 'required|max:30',
+            'tempat_lahir' => 'required|max:30|regex:/^[a-zA-Z \.\,]+$/',
             'tanggal_lahir' => 'required',
             'alamat' => 'required|max:30',
-            'agama' => 'required|max:11',
+            'agama' => 'required|max:11|regex:/^[a-zA-Z \.\,]+$/',
             'no_hp' => 'required|max:13',
             'jenis_kelamin' => 'required',
-            'nama_wali' => 'required|max:30',
+            'nama_wali' => 'required|max:30|regex:/^[a-zA-Z \.\,]+$/',
         ]);
 
         $users = User::create([
