@@ -125,7 +125,7 @@ class SeleksiController extends Controller
             }
             array_push($kondisi_orang_tua, $item->kondisi_orang_tua);
 
-        };
+        }
 
         //Mencari Nilai tertinggi max dan terendah min dari bobot nilai
         $max_nilai_raport = collect($nilai_raport)->max();
@@ -147,32 +147,32 @@ class SeleksiController extends Controller
         foreach($nilai_raport as $nr){
             $n_nilai_raport = $nr / $max_nilai_raport;
             array_push($benefit_nilai_raport, $n_nilai_raport);
-        };
+        }
 
         foreach($perilaku as $p){
             $n_perilaku = $min_perilaku / $p;
             array_push($cost_perilaku, $n_perilaku);
-        };
+        }
 
         foreach($penghasilan_orang_tua as $pot){
             $n_penghasilan_orang_tua = $min_penghasilan_orang_tua / $pot;
             array_push($cost_penghasilan_orang_tua, $n_penghasilan_orang_tua);
-        };
+        }
 
         foreach($tanggungan_orang_tua as $tot){
             $n_tanggungan_orang_tua = $tot / $max_tanggungan_orang_tua;
             array_push($benefit_tanggungan_orang_tua, $n_tanggungan_orang_tua);
-        };
+        }
 
         foreach($pekerjaan_orang_tua as $pkot){
             $n_pekerjaan_orang_tua = $pkot / $max_pekerjaan_orang_tua;
             array_push($benefit_pekerjaan_orang_tua, $n_pekerjaan_orang_tua);
-        };
+        }
 
         foreach($kondisi_orang_tua as $kot){
             $n_kondisi_orang_tua = $min_kondisi_orang_tua / $kot;
             array_push($cost_kondisi_orang_tua, $n_kondisi_orang_tua);
-        };
+        }
 
         $map1 = array_map(function ($single_nilai_raport,
         $single_nilai_raport_normalisasi,
